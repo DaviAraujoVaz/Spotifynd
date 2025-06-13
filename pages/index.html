@@ -15,41 +15,19 @@
   <body>
     <div class="app-container">
       <header class="header">
-        <div class="header__controls">
-          <button
-            class="button button__icon"
-            id="accessibility-toggle"
-            aria-label="Alternar modo de alto contraste"
-          >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M12 18a6 6 0 110-12 6 6 0 010 12zm0-2a4 4 0 100-8V6a6 6 0 010 12v-2z"
-              />
-            </svg>
-          </button>
-          <button
-            class="button button__icon"
-            id="theme-toggle"
-            aria-label="Alternar modo claro e escuro"
-          >
-            <svg
-              class="theme-switch"
-              width="50"
-              height="26"
-              viewBox="0 0 50 26"
-            >
-              <rect
-                class="theme-switch__bg"
-                x="1"
-                y="1"
-                width="48"
-                height="24"
-                rx="12"
-              />
-              <circle class="theme-switch__circle" cx="13" cy="13" r="10" />
-            </svg>
-          </button>
-        </div>
+        <!-- <div class="header__controls"> -->
+        <button
+          class="button button__icon"
+          id="accessibility-toggle"
+          aria-label="Alternar modo de alto contraste"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 18a6 6 0 110-12 6 6 0 010 12zm0-2a4 4 0 100-8V6a6 6 0 010 12v-2z"
+            />
+          </svg>
+        </button>
+        <!-- </div> -->
         <div class="header__title-container">
           <div class="header__logo-and-title">
             <img
@@ -61,6 +39,24 @@
             <h1 class="header__title">Spotfynd</h1>
           </div>
         </div>
+
+        <button
+          class="button button__icon"
+          id="theme-toggle"
+          aria-label="Alternar modo claro e escuro"
+        >
+          <svg class="theme-switch" width="50" height="26" viewBox="0 0 50 26">
+            <rect
+              class="theme-switch__bg"
+              x="1"
+              y="1"
+              width="48"
+              height="24"
+              rx="12"
+            />
+            <circle class="theme-switch__circle" cx="13" cy="13" r="10" />
+          </svg>
+        </button>
       </header>
 
       <main class="main-content">
