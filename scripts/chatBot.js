@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Altera o logo com base no tema
         if (theme === 'light') {
-            headerLogo.src = 'spotfynd-logo-icon-black.png';
+            headerLogo.src = '/resources/spotfynd-logo-icon-black.png';
         } else { // Para 'dark' e 'high-contrast'
-            headerLogo.src = 'spotfynd-logo-icon.png';
+            headerLogo.src = '/resources/spotfynd-logo-icon.png';
         }
 
         if (theme === "light") {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Avatar do Chatbot (agora como <img>)
         const avatar = document.createElement("img");
-        avatar.src = "Sofia-Costa.png"; // Caminho para a imagem
+        avatar.src = "/resources/Sofia-Costa.png"; // Caminho para a imagem
         avatar.alt = "Avatar do chatbot"; // Texto alternativo para acessibilidade
         avatar.className = "chatbot-avatar";
         messageContainer.appendChild(avatar);
