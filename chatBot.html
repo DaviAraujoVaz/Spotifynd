@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotifynd - Encontre Músicas Semelhantes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="chatBot.css" />
+  </head>
+  <body class="antialiased">
+    <div class="h-screen w-screen flex flex-col">
+      <header
+        role="banner"
+        class="app-header text-center py-3 px-4 shadow-md z-10 flex-shrink-0 flex justify-between items-center"
+      >
+        <div class="w-1/3 flex justify-start">
+          <button
+            id="accessibility-btn"
+            aria-label="Ativar ou desativar modo de alto contraste"
+            class="btn btn-icon focus-ring"
+          >
+            <svg
+              style="color: var(--cor-texto-primaria)"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M12 18a6 6 0 110-12 6 6 0 010 12zm0-2a4 4 0 100-8V6a6 6 0 010 12v-2z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="w-1/3">
+          <h1 class="text-2xl sm:text-3xl font-bold">Spotifynd</h1>
+        </div>
+        <div class="w-1/3 flex justify-end">
+          <button
+            id="theme-toggle-btn"
+            aria-label="Mudar entre modo claro e escuro"
+            class="btn btn-icon focus-ring"
+          >
+            <svg
+              class="theme-switch"
+              width="50"
+              height="26"
+              viewBox="0 0 50 26"
+            >
+              <rect
+                class="theme-switch-bg"
+                x="1"
+                y="1"
+                width="48"
+                height="24"
+                rx="12"
+                style="fill: var(--cor-interruptor-fundo)"
+              />
+              <circle
+                class="theme-switch-circle"
+                cx="13"
+                cy="13"
+                r="10"
+                style="fill: var(--cor-interruptor-circulo)"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="chat-window" class="flex-1 overflow-y-auto p-4">
+        <div
+          id="chat-history"
+          role="log"
+          aria-live="polite"
+          class="flex flex-col space-y-4"
+        ></div>
+      </main>
+
+      <footer
+        role="contentinfo"
+        class="app-footer p-2 sm:p-4 z-10 flex-shrink-0"
+      >
+        <div class="w-full max-w-3xl mx-auto">
+          <div
+            id="file-upload-preview"
+            class="hidden items-center bg-tertiary p-2 rounded-t-lg"
+          >
+            <span
+              id="file-name-preview"
+              class="text-sm truncate"
+              style="color: var(--text-primary)"
+            ></span>
+            <button
+              id="cancel-file-button"
+              aria-label="Cancelar seleção do arquivo"
+              class="ml-auto text-gray-300 hover:text-white flex-shrink-0"
+            >
+              &times;
+            </button>
+          </div>
+          <form
+            id="chat-form"
+            class="flex items-center p-1 sm:p-2 rounded-lg input-container"
+          >
+            <label for="userInput" class="sr-only">Digite uma música</label>
+            <input
+              type="text"
+              id="userInput"
+              placeholder="Digite uma música..."
+              class="input-field w-full border-none focus:outline-none px-2 text-sm sm:text-base"
+            />
+            <label
+              for="fileUpload"
+              class="cursor-pointer p-2 text-gray-400 hover:text-white"
+              aria-label="Anexar um arquivo de áudio"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 sm:h-6 sm:w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
+                />
+              </svg>
+            </label>
+            <input
+              type="file"
+              id="fileUpload"
+              class="hidden"
+              accept="audio/*"
+            />
+            <button
+              type="submit"
+              class="btn btn-main ml-1 focus-ring"
+              aria-label="Enviar mensagem"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 sm:h-6 sm:w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </footer>
+    </div>
+    <script src="chatBot.js"></script>
+  </body>
+</html>

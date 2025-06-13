@@ -1,0 +1,302 @@
+/* 1. Padronização: Sistema de Design (Design Tokens) */
+:root {
+  /* Cores (Tema Escuro Padrão) */
+  --color-background: #0d1a4a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a9b2d8;
+  --color-accent-orange: #ff6f00;
+  --color-accent-orange-hover: #e66300;
+  --color-accent-green: #1db954;
+  --color-accent-blue: #2d9cdb;
+  --color-border-light: rgba(255, 255, 255, 0.8);
+  --color-border-subtle: rgba(169, 178, 216, 0.3);
+  --color-switch-bg: #4a5568;
+  --color-switch-circle: #ffffff;
+
+  /* Tipografia */
+  --font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  /* Tipografia Fluida com clamp() */
+  --font-size-h1: clamp(2rem, 1.6rem + 2vw, 3rem);
+  --font-size-h2: clamp(1.3rem, 1.1rem + 1vw, 1.8rem);
+  --font-size-body: clamp(0.9rem, 0.85rem + 0.25vw, 1.1rem);
+  --font-size-small: clamp(0.85rem, 0.8rem + 0.25vw, 1rem);
+  --font-size-xsmall: clamp(0.75rem, 0.7rem + 0.25vw, 0.9rem);
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Espaçamento Fluido com clamp() */
+  --spacing-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.3125rem);
+  --spacing-sm: clamp(0.5rem, 0.4rem + 0.5vw, 0.625rem);
+  --spacing-md: clamp(0.75rem, 0.6rem + 0.75vw, 0.9375rem);
+  --spacing-lg: clamp(1rem, 0.8rem + 1vw, 1.25rem);
+  --spacing-xl: clamp(1.5rem, 1.2rem + 1.5vw, 1.875rem);
+  --spacing-xxl: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
+
+  /* Bordas */
+  --border-radius-md: 8px;
+  --border-radius-full: 50px;
+}
+
+/* Modos de Cor */
+.light-mode {
+  --color-background: #f0f4f8;
+  --color-text-primary: #1c1c1c;
+  --color-text-secondary: #555555;
+  --color-switch-bg: #cbd5e0;
+  --color-border-subtle: rgba(85, 85, 85, 0.3);
+}
+
+.high-contrast-mode {
+  --color-background: #000000;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #dddddd;
+  --color-accent-orange: #ff9900;
+  --color-accent-orange-hover: #ffad33;
+  --color-accent-green: #33ff99;
+  --color-accent-blue: #33ccff;
+  --color-border-subtle: #555;
+}
+
+/* Estilos Gerais e Reset */
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column; /* Garante que o body seja um container flexível vertical */
+  min-height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Container Principal (Bloco) */
+.app-container {
+  width: 100%;
+  max-width: 45rem; /* Max-width em REM para escalabilidade */
+  margin: 0 auto; /* Remove margem vertical e centraliza horizontalmente */
+  padding: 0 var(--spacing-md);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Permite que o container cresça para ocupar o espaço */
+  transition: max-width 0.3s ease-in-out;
+}
+
+/* 2. Padronização: BEM (Bloco__Elemento--Modificador) */
+
+/* Header (Bloco) */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  width: 100%;
+  position: sticky; /* Ancora o header no topo */
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-background); /* Evita transparência no scroll */
+  transition: background-color 0.3s;
+}
+
+.header__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--spacing-md);
+}
+
+.header__title-container {
+  text-align: center;
+}
+
+.header__title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+/* Botão Genérico (Bloco) e Modificadores */
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  color: var(--color-text-primary);
+  line-height: 0;
+}
+
+.button--primary {
+  background-color: var(--color-accent-orange);
+  color: var(--color-text-primary);
+  border-radius: var(--border-radius-full);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-semibold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  margin-bottom: var(--spacing-xxl);
+  transition: background-color 0.2s;
+  line-height: normal;
+}
+
+.button--primary:hover {
+  background-color: var(--color-accent-orange-hover);
+}
+
+.button__icon svg:not(.theme-switch) {
+  width: 1.625rem; /* 26px */
+  height: 1.625rem; /* 26px */
+  fill: currentColor;
+}
+
+/* Interruptor de Tema (Componente) */
+.theme-switch__bg {
+  fill: var(--color-switch-bg);
+  transition: fill 0.3s;
+}
+.theme-switch__circle {
+  fill: var(--color-switch-circle);
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.light-mode .theme-switch__circle {
+  transform: translateX(1.5rem); /* 24px */
+}
+
+/* Corpo Principal */
+.main-content {
+  flex-grow: 1; /* Faz o conteúdo principal crescer para empurrar o footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o conteúdo verticalmente na área disponível */
+  padding: var(--spacing-lg) 0; /* Adiciona espaçamento vertical */
+}
+
+.main-content__description {
+  text-align: center;
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  margin-top: 0;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Recomendações (Bloco) */
+.recommendations__title {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-lg);
+}
+
+.recommendations__list {
+  display: flex;
+  justify-content: center; /* Centraliza os itens */
+}
+
+/* Cartão de Música (Bloco) */
+.song-card {
+  text-align: center;
+  flex: 1 1 0; /* Permite crescer e encolher a partir de uma base zero */
+  max-width: 130px; /* Evita que fiquem muito grandes em telas largas */
+  min-width: 80px; /* Impede que o cartão fique pequeno demais */
+  margin: 0 var(--spacing-sm); /* Margem horizontal responsiva */
+}
+
+.song-card__artwork {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Mantém o formato quadrado */
+  height: auto;
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.song-card__artwork:hover {
+  transform: scale(1.05);
+}
+
+.song-card__artwork--orange {
+  background-color: var(--color-accent-orange);
+}
+.song-card__artwork--green {
+  background-color: var(--color-accent-green);
+}
+.song-card__artwork--blue {
+  background-color: var(--color-accent-blue);
+}
+
+.song-card__artwork-icon {
+  width: 40%;
+  height: 40%;
+  border: 3px solid var(--color-border-light);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-card__artwork-icon::before {
+  content: "";
+  width: 40%;
+  height: 40%;
+  background-color: var(--color-border-light);
+  border-radius: 50%;
+}
+
+.song-card__title {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+.song-card__artist {
+  font-size: var(--font-size-xsmall);
+  color: var(--color-text-secondary);
+  margin: var(--spacing-xs) 0 0;
+}
+
+/* Footer (Bloco) */
+.footer {
+  text-align: center;
+  padding: var(--spacing-lg) 0; /* Padding vertical */
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer__social-link {
+  color: var(--color-text-secondary);
+  transition: color 0.2s;
+}
+.footer__social-link:hover {
+  color: var(--color-text-primary);
+}
+
+.footer__social-link svg {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  fill: currentColor;
+}
+
+.footer__text {
+  font-size: var(--font-size-xsmall);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-xs) 0;
+}

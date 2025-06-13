@@ -1,0 +1,184 @@
+/* --- THEME DEFINITIONS --- */
+:root {
+  /* Dark Theme (Default) */
+  --cor-fundo: #0d1a4a;
+  --cor-fundo-secundario: #1b2a5a; /* Derived for UI hierarchy */
+  --cor-fundo-terciario: #2c3a6a; /* Derived for UI hierarchy */
+  --cor-texto-primaria: #ffffff;
+  --cor-texto-secundaria: #a9b2d8;
+  --cor-destaque-laranja: #ff6f00;
+  --cor-destaque-laranja-hover: #e66300;
+  --cor-destaque-verde: #1db954;
+  --cor-destaque-azul: #2d9cdb;
+  --cor-borda-clara: rgba(255, 255, 255, 0.8);
+  --cor-interruptor-fundo: #4a5568;
+  --cor-interruptor-circulo: #ffffff;
+  --border-color: var(--cor-fundo-terciario);
+  --focus-ring-color: var(--cor-destaque-laranja);
+}
+
+[data-theme="light"] {
+  --cor-fundo: #f0f4f8;
+  --cor-fundo-secundario: #ffffff;
+  --cor-fundo-terciario: #e4e6eb;
+  --cor-texto-primaria: #1c1c1c;
+  --cor-texto-secundaria: #555555;
+  --cor-interruptor-fundo: #718096;
+  --cor-interruptor-circulo: #ffffff;
+  --border-color: #ced0d4;
+}
+
+[data-theme="high-contrast"] {
+  --cor-fundo: #000000;
+  --cor-fundo-secundario: #000000;
+  --cor-fundo-terciario: #000000;
+  --cor-texto-primaria: #ffffff;
+  --cor-texto-secundaria: #dddddd;
+  --cor-destaque-laranja: #ff9900;
+  --cor-destaque-laranja-hover: #ffad33;
+  --cor-destaque-verde: #33ff99;
+  --cor-destaque-azul: #33ccff;
+  --border-color: #ffffff;
+  --focus-ring-color: var(--cor-destaque-laranja);
+}
+
+/* --- BASE STYLES --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-secundaria);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+h1,
+h2,
+h3,
+.font-poppins {
+  font-family: inherit; /* Use body font */
+  color: var(--cor-texto-primaria);
+  font-weight: 600;
+}
+
+/* --- COMPONENT STYLES --- */
+.app-header,
+.app-footer {
+  background-color: var(--cor-fundo-secundario);
+}
+
+.btn {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease-in-out;
+  line-height: 0;
+}
+.btn-icon {
+  background-color: transparent;
+}
+.btn-icon:hover {
+  background-color: var(--cor-fundo-terciario);
+}
+
+.btn-main {
+  background-color: var(--cor-destaque-laranja);
+  color: var(--cor-texto-primaria);
+}
+.btn-main:hover {
+  background-color: var(--cor-destaque-laranja-hover);
+}
+
+.btn-secondary {
+  background-color: var(--cor-fundo-terciario);
+  color: var(--cor-texto-primaria);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+  filter: brightness(1.2);
+}
+
+.chat-bubble {
+  max-width: 85%;
+  align-self: flex-start;
+  background-color: var(--cor-fundo-secundario);
+  color: var(--cor-texto-primaria);
+  border: 1px solid var(--border-color);
+}
+.chat-bubble--user {
+  align-self: flex-end;
+  background-color: var(--cor-destaque-laranja);
+  color: var(--cor-texto-primaria);
+  border: none;
+  font-weight: 500;
+}
+
+.card {
+  background-color: var(--cor-fundo-secundario);
+  border: 1px solid var(--border-color);
+}
+.card:hover {
+  background-color: var(--cor-fundo-terciario);
+  transform: translateY(-5px);
+}
+
+.input-container {
+  background-color: var(--cor-fundo-secundario);
+  border: 1px solid var(--border-color);
+}
+.input-field {
+  background-color: transparent;
+  color: var(--cor-texto-primaria);
+}
+.input-field::placeholder {
+  color: var(--cor-texto-secundaria);
+  opacity: 0.8;
+}
+
+/* --- ACCESSIBILITY & INTERACTION --- */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+.input-container:focus-within {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --- ANIMATIONS & TRANSITIONS --- */
+.typing-indicator span {
+  animation: bounce 1.4s infinite ease-in-out both;
+  background-color: var(--cor-texto-secundaria);
+}
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.theme-switch-circle {
+  transition: transform 0.3s ease-in-out;
+}
+.theme-switch.toggled .theme-switch-circle {
+  transform: translateX(24px);
+}
