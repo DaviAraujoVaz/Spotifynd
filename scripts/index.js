@@ -18,10 +18,10 @@ let lastNormalTheme = "dark";
  */
 function updateLogo(theme) {
     if (theme === "light") {
-        headerLogo.src = "/resources/spotfynd-logo-icon-black.png";
+        headerLogo.src = "/resources/spotifynd-logo-icon-black.png";
     } else {
         // Para temas 'dark' e 'high-contrast', usa o mesmo logo.
-        headerLogo.src = "/resources/spotfynd-logo-icon.png";
+        headerLogo.src = "/resources/spotifynd-logo-icon.png";
     }
 }
 

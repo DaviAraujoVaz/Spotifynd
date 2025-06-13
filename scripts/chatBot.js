@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Altera o logo com base no tema
         if (theme === 'light') {
-            headerLogo.src = '/resources/spotfynd-logo-icon-black.png';
+            headerLogo.src = '/resources/spotifynd-logo-icon-black.png';
         } else { // Para 'dark' e 'high-contrast'
-            headerLogo.src = '/resources/spotfynd-logo-icon.png';
+            headerLogo.src = '/resources/spotifynd-logo-icon.png';
         }
 
         if (theme === "light") {
