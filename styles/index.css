@@ -141,6 +141,11 @@ body {
   padding: var(--spacing-xs);
   color: var(--color-text-primary);
   line-height: 0;
+  text-decoration: none;
+}
+
+.button:visited {
+  text-decoration: none;
 }
 
 .button--primary {
@@ -154,7 +159,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: var(--spacing-sm);
-  width: 100%;
   margin-bottom: var(--spacing-xxl);
   transition: background-color 0.2s;
   line-height: normal;

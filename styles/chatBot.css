@@ -99,6 +99,30 @@ h3,
   filter: brightness(1.2);
 }
 
+/* Estilo para o botão de retorno */
+.btn-return {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 100;
+  background-color: var(--cor-fundo-terciario);
+  color: var(--cor-texto-primaria);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-return:hover {
+  background-color: var(--cor-destaque-laranja);
+  transform: scale(1.1);
+}
+
 .chatbot-avatar {
   width: 2.5rem; /* 40px */
   height: 2.5rem; /* 40px */
@@ -134,14 +158,22 @@ h3,
 .input-container {
   background-color: var(--cor-fundo-secundario);
   border: 1px solid var(--border-color);
+  width: 80%;
 }
+
 .input-field {
   background-color: transparent;
   color: var(--cor-texto-primaria);
 }
+
 .input-field::placeholder {
   color: var(--cor-texto-secundaria);
   opacity: 0.8;
+}
+
+.footer-content-wrapper {
+  display: flex;
+  justify-content: space-around;
 }
 
 /* --- ACCESSIBILITY & INTERACTION --- */
@@ -193,4 +225,20 @@ h3,
 }
 .theme-switch.toggled .theme-switch-circle {
   transform: translateX(24px);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 640px) {
+  .btn-return {
+    width: 2.5rem;
+    height: 2.5rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .footer-content-wrapper {
+    /* Adiciona um espaçamento à esquerda para não sobrepor o input */
+    padding-left: 3.8rem;
+    transition: padding-left 0.3s ease;
+  }
 }
