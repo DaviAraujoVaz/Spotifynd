@@ -55,4 +55,4 @@ Não é necessário nenhum passo de compilação ou dependências. É um projeto
 
 ## 📜 Licença
 
-Este projeto está licenciado sob a Licença MIT. Veja o ficheiro `LICENSE` para mais detalhes.
+Veja o ficheiro `LICENSE` para mais detalhes.
