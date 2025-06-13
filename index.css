@@ -116,6 +116,17 @@ body {
   text-align: center;
 }
 
+.header__logo-and-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.header__logo {
+  height: 2.5rem;
+}
+
 .header__title {
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);

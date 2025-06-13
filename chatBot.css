@@ -65,6 +65,10 @@ h3,
   background-color: var(--cor-fundo-secundario);
 }
 
+.header-logo {
+  height: 2.5rem; /* 40px */
+}
+
 .btn {
   padding: 0.5rem;
   border-radius: 9999px;
@@ -93,6 +97,14 @@ h3,
 }
 .btn-secondary:hover {
   filter: brightness(1.2);
+}
+
+.chatbot-avatar {
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+  border-radius: 9999px; /* torna o elemento circular */
+  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+  flex-shrink: 0; /* previne que o avatar encolha */
 }
 
 .chat-bubble {

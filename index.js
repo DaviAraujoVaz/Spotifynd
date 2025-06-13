@@ -4,11 +4,27 @@ const themeToggleButton = document.getElementById("theme-toggle");
 const accessibilityToggleButton = document.getElementById(
     "accessibility-toggle"
 );
+const headerLogo = document.getElementById("header-logo");
 
 // --- Funções ---
 
 /**
- * Alterna uma classe no body e salva o estado no localStorage.
+ * Atualiza o src da imagem do logo com base no tema atual.
+ */
+function updateLogo() {
+    if (body.classList.contains("high-contrast-mode")) {
+        // Usa o logo padrão para o tema de alto contraste
+        headerLogo.src = 'spotfynd-logo-icon.png';
+    } else if (body.classList.contains("light-mode")) {
+        headerLogo.src = 'spotfynd-logo-icon-black.png';
+    } else {
+        // Usa o logo padrão para os temas escuro e de alto contraste
+        headerLogo.src = 'spotfynd-logo-icon.png';
+    }
+}
+
+/**
+ * Alterna uma classe no body, salva o estado e atualiza o logo.
  * @param {string} className - O nome da classe para alternar.
  * @param {string} storageKey - A chave para usar no localStorage.
  */
@@ -19,6 +35,7 @@ function toggleAndSave(className, storageKey) {
     } else {
         localStorage.removeItem(storageKey);
     }
+    updateLogo(); // Atualiza o logo sempre que um tema é alterado
 }
 
 /**
@@ -31,6 +48,7 @@ function loadPreferences() {
     if (localStorage.getItem("highContrast") === "enabled") {
         body.classList.add("high-contrast-mode");
     }
+    updateLogo(); // Garante que o logo correto seja exibido no carregamento da página
 }
 
 // --- Event Listeners ---

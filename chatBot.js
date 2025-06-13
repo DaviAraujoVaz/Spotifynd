@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const fileNamePreview = document.getElementById("file-name-preview");
     const cancelFileButton = document.getElementById("cancel-file-button");
+    const headerLogo = document.getElementById("header-logo-img");
 
     const accessibilityBtn = document.getElementById("accessibility-btn");
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
@@ -27,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
             html.classList.remove("high-contrast-mode");
 
         html.setAttribute("data-theme", theme);
+
+        // Altera o logo com base no tema
+        if (theme === 'light') {
+            headerLogo.src = 'spotfynd-logo-icon-black.png';
+        } else { // Para 'dark' e 'high-contrast'
+            headerLogo.src = 'spotfynd-logo-icon.png';
+        }
+
         if (theme === "light") {
             html.classList.add("light-mode");
         } else if (theme === "high-contrast") {
@@ -74,27 +83,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Chat Logic ---
     const addMessage = (message, sender, isHTML = false) => {
-        const bubble = document.createElement("div");
-        const bubbleTypeClass = sender === "user" ? "chat-bubble--user" : "";
-        bubble.className = `w-full sm:max-w-md md:max-w-lg rounded-xl p-3 sm:p-4 chat-bubble ${bubbleTypeClass}`;
+        // As mensagens do usuário continuam como antes
+        if (sender === "user") {
+            const bubble = document.createElement("div");
+            bubble.className = `w-full sm:max-w-md md:max-w-lg rounded-xl p-3 sm:p-4 chat-bubble chat-bubble--user`;
+            if (isHTML) {
+                bubble.innerHTML = message;
+            } else {
+                bubble.textContent = message;
+            }
+            chatHistory.appendChild(bubble);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+            return;
+        }
 
+        // Para o bot, criamos um contêiner para a imagem e a mensagem
+        const messageContainer = document.createElement("div");
+        messageContainer.className = "flex items-end gap-2";
+
+        // Avatar do Chatbot (agora como <img>)
+        const avatar = document.createElement("img");
+        avatar.src = "Sofia-Costa.png"; // Caminho para a imagem
+        avatar.alt = "Avatar do chatbot"; // Texto alternativo para acessibilidade
+        avatar.className = "chatbot-avatar";
+        messageContainer.appendChild(avatar);
+
+        // Bolha de Mensagem
+        const bubble = document.createElement("div");
+        bubble.className = `w-full sm:max-w-md md:max-w-lg rounded-xl p-3 sm:p-4 chat-bubble`;
         if (isHTML) {
             bubble.innerHTML = message;
         } else {
             bubble.textContent = message;
         }
-        chatHistory.appendChild(bubble);
+        messageContainer.appendChild(bubble);
+
+        chatHistory.appendChild(messageContainer);
         chatHistory.scrollTop = chatHistory.scrollHeight;
     };
 
     const showTypingIndicator = () => {
-        const indicator = `<div id="typing-indicator" class="flex items-center space-x-2 p-4"><span class="block w-2 h-2 rounded-full"></span><span class="block w-2 h-2 rounded-full"></span><span class="block w-2 h-2 rounded-full"></span></div>`;
+        const indicator = `<div id="typing-indicator" class="flex items-center space-x-2"><span class="block w-2 h-2 rounded-full"></span><span class="block w-2 h-2 rounded-full"></span><span class="block w-2 h-2 rounded-full"></span></div>`;
         addMessage(indicator, "bot", true);
     };
 
     const removeTypingIndicator = () => {
         const indicator =
-            document.getElementById("typing-indicator")?.parentElement;
+            document.getElementById("typing-indicator")?.parentElement.parentElement;
         if (indicator) indicator.remove();
     };
 
@@ -208,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
         addMessage(
-            "Olá! Sou o Spotifynd. Qual música você está ouvindo hoje?",
+            "Olá! Sou a Sofia. Qual música você está ouvindo hoje?",
             "bot"
         );
     }, 500);
