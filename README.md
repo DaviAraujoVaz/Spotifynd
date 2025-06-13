@@ -1,58 +1,58 @@
-# Spotfynd - Music Discovery Interface
+# Spotfynd - Interface de Descoberta de Música
 
-A fully responsive and accessible front-end for a music discovery application, built with modern HTML, CSS, and JavaScript. This project serves as a demonstration of clean code, responsive design principles, and a strong focus on user accessibility.
+Uma interface front-end totalmente responsiva e acessível para uma aplicação de descoberta de música, construída com HTML, CSS e JavaScript modernos. Este projeto serve como uma demonstração de código limpo, princípios de design responsivo e um forte foco na acessibilidade do usuário.
 
 ![Spotfynd Preview](https://storage.googleapis.com/gemini-prod-us-west1-assets/e6034c44243b35a3/spotfynd_demo.gif)
 
 ---
 
-## ✨ Features
+## ✨ Funcionalidades
 
-* **Fully Responsive Design:** The layout seamlessly adapts to any screen size, from small mobile devices to large desktop monitors, using a fluid and flexible approach.
-* **Multiple Themes:**
-    * **Light & Dark Mode:** A sleek theme switcher allows users to toggle between a light and dark interface.
-    * **High-Contrast Mode:** A dedicated accessibility option to improve readability for users with visual impairments.
-* **Accessibility First (a11y):**
-    * Semantic HTML5 structure for screen reader compatibility.
-    * ARIA labels for interactive elements.
-    * Focus on keyboard navigability.
-* **Modern CSS Architecture:**
-    * **Design Tokens:** Utilizes CSS variables for a standardized system of colors, fonts, and spacing, making the theme easily customizable.
-    * **Fluid Typography & Spacing:** Employs the `clamp()` function to ensure text and margins scale smoothly with the viewport.
-    * **BEM Methodology:** Follows the Block, Element, Modifier naming convention for scalable and maintainable styles.
+* **Design Totalmente Responsivo:** O layout adapta-se perfeitamente a qualquer tamanho de ecrã, desde pequenos dispositivos móveis a grandes monitores de desktop, utilizando uma abordagem fluida e flexível.
+* **Múltiplos Temas:**
+    * **Modo Claro & Escuro:** Um seletor de tema elegante permite aos utilizadores alternar entre uma interface clara e escura.
+    * **Modo de Alto Contraste:** Uma opção de acessibilidade dedicada para melhorar a legibilidade para utilizadores com deficiência visual.
+* **Acessibilidade em Primeiro Lugar (a11y):**
+    * Estrutura semântica de HTML5 para compatibilidade com leitores de ecrã.
+    * Etiquetas ARIA para elementos interativos.
+    * Foco na navegabilidade por teclado.
+* **Arquitetura CSS Moderna:**
+    * **Tokens de Design:** Utiliza variáveis CSS para um sistema padronizado de cores, fontes e espaçamento, tornando o tema facilmente personalizável.
+    * **Tipografia e Espaçamento Fluidos:** Emprega a função `clamp()` para garantir que o texto e as margens escalem suavemente com a viewport.
+    * **Metodologia BEM:** Segue a convenção de nomenclatura Bloco, Elemento, Modificador para estilos escaláveis e de fácil manutenção.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tecnologias Utilizadas
 
-* **HTML5:** Structured with semantic tags for accessibility and SEO.
+* **HTML5:** Estruturado com tags semânticas para acessibilidade e SEO.
 * **CSS3:**
-    * **Flexbox** for layout management.
-    * **CSS Custom Properties (Variables)** for theming and a clean design system.
-    * **`clamp()`** for fluid typography and spacing.
-    * **BEM** for class naming conventions.
+    * **Flexbox** para gestão de layout.
+    * **Propriedades Personalizadas CSS (Variáveis)** para temas e um sistema de design limpo.
+    * **`clamp()`** para tipografia e espaçamento fluidos.
+    * **BEM** para convenções de nomenclatura de classes.
 * **JavaScript (ES6+):**
-    * Vanilla JS for theme and accessibility toggles.
-    * Uses `localStorage` to remember the user's theme preference across sessions.
+    * Vanilla JS para os seletores de tema e acessibilidade.
+    * Utiliza `localStorage` para memorizar a preferência de tema do utilizador entre sessões.
 
 ---
 
-## 🚀 How to Use
+## 🚀 Como Utilizar
 
-1.  Clone the repository:
+1.  Clone o repositório:
     ```bash
-    git clone [https://github.com/your-username/spotfynd.git](https://github.com/your-username/spotfynd.git)
+    git clone [https://github.com/seu-usuario/spotfynd.git](https://github.com/seu-usuario/spotfynd.git)
     ```
-2.  Navigate to the project directory:
+2.  Navegue para o diretório do projeto:
     ```bash
     cd spotfynd
     ```
-3.  Open the `index.html` file in your favorite web browser.
+3.  Abra o ficheiro `index.html` no seu navegador web preferido.
 
-No build step or dependencies are required. It's a pure front-end project.
+Não é necessário nenhum passo de compilação ou dependências. É um projeto puramente front-end.
 
 ---
 
-## 📜 License
+## 📜 Licença
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+Este projeto está licenciado sob a Licença MIT. Veja o ficheiro `LICENSE` para mais detalhes.
